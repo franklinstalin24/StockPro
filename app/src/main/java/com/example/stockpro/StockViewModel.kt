@@ -3,8 +3,6 @@ package com.example.stockpro
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.room.util.copy
-import com.example.stockpro.Producto
-
 
 class StockViewModel : ViewModel() {
     val productos = mutableStateListOf(

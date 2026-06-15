@@ -4,13 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -41,12 +35,12 @@ fun StockProApp(viewModel: StockViewModel = viewModel()) {
             PantallaIngreso(navController) // Pantalla de ingreso con el TextField para el nombre del operario
         }
 
-        composable("pantalla2") { backStackEntry ->
+        composable("pantalla2/{nombre}") { backStackEntry ->
             val nombre = backStackEntry.arguments?.getString("nombre") ?: ""
             PantallaCatalogo(navController, nombre, viewModel) // Pantalla de catálogo que muestra el nombre del operario y la lista de productos
         }
 
-        composable("pantalla3") { backStackEntry ->
+        composable("pantalla3/{id}") { backStackEntry ->
             val id = backStackEntry.arguments?.getString("id")?.toIntOrNull() ?: 0
             PantallaEdicion(navController, id, viewModel) // Pantalla de edición que muestra el detalle del producto seleccionado y permite actualizar el stock
         }

@@ -1,6 +1,6 @@
 package com.example.stockpro
 
-class Producto (
+data class Producto (
     val id: Int,
     val nombre: String,
     val descripcion: String,
